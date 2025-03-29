@@ -1,4 +1,4 @@
-Theme]
+[Theme]
 engine = mako
 parent = bootstrap5
 author = The Nikola Contributors
