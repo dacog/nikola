@@ -2,7 +2,7 @@
 
 .blog-header {
   line-height: 1;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: var(--bs-border-width) solid var(--bs-border-color);
 }
 
 .blog-header-logo {
@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 .display-4 {
   font-size: 2.5rem;
 }
+
 @media (min-width: 768px) {
   .display-4 {
     font-size: 3rem;
@@ -35,10 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-scroller .nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   padding-bottom: 1rem;
   margin-top: -1px;
@@ -54,14 +52,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: .875rem;
 }
 
-.card-img-right {
+.card-img-end {
   height: 100%;
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 var(--bs-border-radius) var(--bs-border-radius) 0;
 }
 
 .flex-auto {
-  -ms-flex: 0 0 auto;
-  -webkit-box-flex: 0;
   flex: 0 0 auto;
 }
 
@@ -75,10 +71,10 @@ h1, h2, h3, h4, h5, h6 {
   .h-md-250 { height: 250px; }
 }
 
-.border-top { border-top: 1px solid #e5e5e5; }
-.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top { border-top: var(--bs-border-width) solid var(--bs-border-color); }
+.border-bottom { border-bottom: var(--bs-border-width) solid var(--bs-border-color); }
 
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+.shadow-sm { box-shadow: var(--bs-box-shadow-sm) !important; }
 
 /*
  * Blog name and description
@@ -88,9 +84,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
   font-weight: 400;
 }
+
 .blog-description {
   font-size: 1.1rem;
-  color: #999;
+  color: var(--bs-secondary-color);
 }
 
 @media (min-width: 40em) {
@@ -103,6 +100,7 @@ h1, h2, h3, h4, h5, h6 {
 .blog-pagination {
   margin-bottom: 4rem;
 }
+
 .blog-pagination > .btn {
   border-radius: 2rem;
 }
@@ -113,16 +111,19 @@ h1, h2, h3, h4, h5, h6 {
 article {
   margin-bottom: 4rem;
 }
+
 article:last-child {
   margin-bottom: 0;
 }
+
 .entry-title {
   margin-bottom: .25rem;
   font-size: 2.5rem;
 }
+
 article .metadata {
   margin-bottom: 1.25rem;
-  color: #999;
+  color: var(--bs-secondary-color);
 }
 
 /*
@@ -130,11 +131,12 @@ article .metadata {
  */
 .blog-footer {
   padding: 2.5rem 0;
-  color: #999;
+  color: var(--bs-secondary-color);
   text-align: center;
-  background-color: #f9f9f9;
-  border-top: .05rem solid #e5e5e5;
+  background-color: var(--bs-tertiary-bg);
+  border-top: var(--bs-border-width) solid var(--bs-border-color);
 }
+
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
@@ -145,9 +147,7 @@ article .metadata {
   }
 
   .nbb-header {
-    -webkit-box-pack: justify!important;
-    -ms-flex-pack: justify!important;
-    justify-content: space-between!important;
+    justify-content: space-between !important;
   }
 }
 
@@ -157,29 +157,28 @@ article .metadata {
     white-space: initial;
 }
 
-.bootblog4-featured-large-image {
+.bootblog5-featured-large-image {
     height: 100%;
-    border-top-right-radius: .25rem!important;
-    border-bottom-right-radius: .25rem!important;
+    border-top-end-radius: var(--bs-border-radius) !important;
+    border-bottom-end-radius: var(--bs-border-radius) !important;
 }
 
-.bootblog4-featured-jumbotron-row {
-    margin-left: 0;
-    margin-right: 0;
+.bootblog5-featured-jumbotron-row {
+    margin-inline: 0;
 }
 
-.bootblog4-right-nav {
+.bootblog5-right-nav {
     flex-direction: row;
 }
 
-.bootblog4-right-nav .nav-link {
-    padding-right: .5rem;
-    padding-left: .5rem;
+.bootblog5-right-nav .nav-link {
+    padding-inline: .5rem;
 }
 
-.bootblog4-featured-text {
+.bootblog5-featured-text {
     overflow: auto;
 }
+
 /* extend the mobile appearance to `sm`, because otherwise weird things happen */
 @media (min-width: 576px) {
     .nbb-navbar-toggler {
@@ -188,21 +187,21 @@ article .metadata {
 }
 
 @media (max-width: 767px) {
-    .bootblog4-right-nav {
+    .bootblog5-right-nav {
         margin-top: 1rem;
     }
 
-    .bootblog4-search-form-holder {
+    .bootblog5-search-form-holder {
         position: absolute;
         top: 2.75rem;
     }
 
-    .bootblog4-search-form-holder input.form-control {
+    .bootblog5-search-form-holder input.form-control {
         width: 6rem;
     }
 
-    .bootblog4-brand {
-        text-align: left;
+    .bootblog5-brand {
+        text-align: start;
     }
 }
 
@@ -215,11 +214,11 @@ article .metadata {
         display: flex !important;
     }
 
-    .bootblog4-search-form-holder {
+    .bootblog5-search-form-holder {
         display: block !important;
     }
 
-    .bootblog4-brand {
+    .bootblog5-brand {
         text-align: center;
     }
 }

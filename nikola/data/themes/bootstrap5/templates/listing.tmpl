@@ -4,7 +4,7 @@
 <%block name="content">
 ${ui.breadcrumbs(crumbs)}
 %if folders or files:
-<ul>
+<ul class="list-unstyled">
 % for name in folders:
     <li><a href="${name|h}">&#x1f4c2;&nbsp;${name|h}</a>
 % endfor

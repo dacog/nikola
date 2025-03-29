@@ -1,7 +1,7 @@
-This is a theme based on Bootstrap 4.
+This is a theme based on Bootstrap 5.
 
 The theme is a good building block for a site. It is based on a simple navbar +
-content layout. For a more blog-style layout, check out `bootblog4`.
+content layout. For a more blog-style layout, check out `bootblog5`.
 
 Note that unlike previous versions of Bootstrap, icon fonts are not built-in.
 You can use Font Awesome for this.

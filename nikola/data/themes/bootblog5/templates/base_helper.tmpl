@@ -3,8 +3,7 @@
 
 <%def name="html_headstart()">
 <!DOCTYPE html>
-<html
-\
+<html \
 prefix='\
 og: http://ogp.me/ns# article: http://ogp.me/ns/article# \
 %if comment_system == 'facebook':
@@ -53,21 +52,14 @@ lang="${lang}">
         <link rel="next" href="${nextlink}" type="text/html">
     %endif
 
-    %if use_cdn:
-        <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    %else:
-        <!--[if lt IE 9]><script src="${url_replacer(permalink, '/assets/js/html5.js', lang, url_type)}"></script><![endif]-->
-    %endif
-
     ${extra_head_data}
 </%def>
 
 <%def name="late_load_js()">
     %if use_cdn:
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" integrity="sha256-ULQV01VS9LCI2ePpLsmka+W0mawFpEA0rtxnezUj4A4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha256-/ijcOLwFf26xEYAjW75FizKVo5tnTYiQddPZoLUHHZ8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha256-3gQJhtmj7YnV1fmtbVcnAV6eI4ws0Tr48bVZCThtCGQ=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/baguettebox.js@1.12.0/dist/baguetteBox.min.js" integrity="sha256-WA9OKXUQ1QSnZUilCTj/BipwtbDJoPDY5qPVgUimzhI=" crossorigin="anonymous"></script>
     % endif
     %if use_bundles and use_cdn:
         <script src="/assets/js/all.js"></script>
@@ -75,15 +67,13 @@ lang="${lang}">
         <script src="/assets/js/all-nocdn.js"></script>
     %else:
         %if not use_cdn:
-            <script src="/assets/js/jquery.min.js"></script>
-            <script src="/assets/js/popper.min.js"></script>
-            <script src="/assets/js/bootstrap.min.js"></script>
+            <script src="/assets/js/bootstrap.bundle.min.js"></script>
             <script src="/assets/js/baguetteBox.min.js"></script>
         %endif
     %endif
     %if date_fanciness != 0:
         %if use_cdn:
-            <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js" integrity="sha256-Nn+JGDrq3PuTxcDfJmmI0Srj5LpfOFlKqEiPwQK7y40=" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/luxon@3.6.0/build/global/luxon.min.js" integrity="sha256-iwHGzfeSAG3GVYJLvrpKaSk5cHAIlwWIJGYGBbeX49U=" crossorigin="anonymous"></script>
         %else:
             <script src="/assets/js/luxon.min.js"></script>
         %endif
@@ -94,11 +84,10 @@ lang="${lang}">
     ${social_buttons_code}
 </%def>
 
-
 <%def name="html_stylesheets()">
     % if use_cdn:
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" integrity="sha256-cLMYWYYutHkt+KpNqjg7NVkYSQ+E2VbrXsEvOqU7mL0=" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha256-PI8n5gCcz9cQqQXm3PEtDuPG8qx9oFsFctPg0S5zb8g=" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/baguettebox.js@1.12.0/dist/baguetteBox.min.css" integrity="sha256-h+t6BKPqrOZlnadIVwXzgWSNkuSiUqRQ9nbF8UslZM8=" crossorigin="anonymous">
     % endif
     %if use_bundles and use_cdn:
         <link href="/assets/css/all.css" rel="stylesheet" type="text/css">
@@ -131,27 +120,27 @@ lang="${lang}">
 <%def name="html_navigation_links_entries(navigation_links_source)">
     %for url, text in navigation_links_source[lang]:
         % if isinstance(url, tuple):
-            <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${text}</a>
-            <div class="dropdown-menu">
-            %for suburl, text in url:
-                % if rel_link(permalink, suburl) == "#":
-                    <a href="${permalink}" class="dropdown-item active">${text} <span class="sr-only">${messages("(active)", lang)}</span></a>
-                %else:
-                    <a href="${suburl}" class="dropdown-item">${text}</a>
-                %endif
-            %endfor
-            </div>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">${text}</a>
+                <ul class="dropdown-menu">
+                %for suburl, text in url:
+                    % if rel_link(permalink, suburl) == "#":
+                        <li><a href="${permalink}" class="dropdown-item active" aria-current="page">${text}</a></li>
+                    %else:
+                        <li><a href="${suburl}" class="dropdown-item">${text}</a></li>
+                    %endif
+                %endfor
+                </ul>
+            </li>
         % else:
             % if rel_link(permalink, url) == "#":
-                <li class="nav-item active"><a href="${permalink}" class="nav-link">${text} <span class="sr-only">${messages("(active)", lang)}</span></a>
+                <li class="nav-item"><a href="${permalink}" class="nav-link active" aria-current="page">${text}</a></li>
             %else:
-                <li class="nav-item"><a href="${url}" class="nav-link">${text}</a>
+                <li class="nav-item"><a href="${url}" class="nav-link">${text}</a></li>
             %endif
         % endif
     %endfor
 </%def>
-
-
 
 <%def name="html_feedlinks()">
     ${feeds_translations.head(classification=None, kind='index', other=False)}

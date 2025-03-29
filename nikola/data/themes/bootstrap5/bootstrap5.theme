@@ -4,9 +4,9 @@ parent = base
 author = The Nikola Contributors
 author_url = https://getnikola.com/
 license = MIT
-based_on = Bootstrap 4 <http://getbootstrap.com/>
+based_on = Bootstrap 5 <http://getbootstrap.com/>
 tags = bootstrap
 
 [Family]
-family = bootstrap4
-jinja_version = bootstrap4-jinja
+family = bootstrap5
+jinja_version = bootstrap5-jinja
