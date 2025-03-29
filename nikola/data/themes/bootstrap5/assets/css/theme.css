@@ -1,51 +1,47 @@
 img {
     max-width: 100%;
+    height: auto;
 }
 
 .titlebox {
     text-align: right;
 }
 
-
 td.label {
-    /* Issue #290 */
     background-color: inherit;
 }
 
 .footnote-reference {
-    /* Issue 290 */
     vertical-align: super;
     font-size: xx-small;
 }
 
 .caption {
-    /* Issue 292 */
     text-align: center;
-    padding-top: 1em;
+    padding-top: 1rem;
 }
 
 div.figure > img,
 div.figure > a > img {
-    /* Issue 292 */
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
 blockquote p, blockquote {
-  font-size: 1.25rem;
-  font-weight: 300;
-  line-height: 1.25;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.25;
 }
 
 ul.bricks > li {
     display: inline;
-    background-color: lightblue;
-    padding: 8px;
-    border-radius: 5px;
+    background-color: var(--bs-info-bg-subtle);
+    padding: 0.5rem;
+    border-radius: var(--bs-border-radius);
     line-height: 3;
-    white-space:nowrap;
-    margin: 3px;
+    white-space: nowrap;
+    margin: 0.25rem;
 }
 
 pre, pre code {
@@ -68,30 +64,30 @@ article.post-micro {
     margin-left: -5px;
     list-style: none;
     text-align: center;
-
 }
 
 .tags > li {
     display: inline-block;
 }
+
 .tags > li a {
     display: inline-block;
-    padding: .25em .4em;
+    padding: 0.25rem 0.4rem;
     font-size: 75%;
     font-weight: 700;
     line-height: 1;
-    color: #fff;
+    color: var(--bs-light);
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25rem;
-    background-color: #868e96;
+    border-radius: var(--bs-border-radius);
+    background-color: var(--bs-secondary);
+    text-decoration: none;
 }
 
 .tags > li a:hover {
-    color: #fff;
-    text-decoration: none;
-    background-color: #6c757d;
+    color: var(--bs-light);
+    background-color: var(--bs-secondary-dark);
 }
 
 .metadata p:before,
@@ -118,22 +114,19 @@ article.post-micro {
 }
 
 .entry-content {
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
-/* for alignment with Bootstrap's .entry-content styling */
 .entry-summary {
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
-/* Custom page footer */
 #footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
+    padding-top: 1.25rem;
+    color: var(--bs-secondary-text);
+    border-top: var(--bs-border-width) solid var(--bs-border-color);
 }
 
-/* hat tip bootstrap/html5 boilerplate */
 @media print {
     *, *:before, *:after {
         font-family: Garamond, Junicode, serif;
@@ -163,8 +156,8 @@ article.post-micro {
 }
 
 pre, .codetable {
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
     margin-bottom: 1rem;
 }
 
@@ -173,11 +166,11 @@ pre {
 }
 
 .codetable tr:first-child td.linenos {
-    border-top-left-radius: 0.25rem;
+    border-top-left-radius: var(--bs-border-radius);
 }
 
 .codetable tr:last-child td.linenos {
-    border-bottom-left-radius: 0.25rem;
+    border-bottom-left-radius: var(--bs-border-radius);
 }
 
 .postindexpager {
@@ -192,8 +185,7 @@ ul.pager {
     display: flex;
     padding-left: 0;
     list-style: none;
-    border-radius: .25rem;
-    padding-left: 0;
+    border-radius: var(--bs-border-radius);
     margin: 0.5rem 0;
 }
 
@@ -207,15 +199,19 @@ ul.pager li.next {
     display: inline;
 }
 
-
 ul.pager li a {
-    display: inline;
-    position: relative;
-    padding: .5rem .75rem;
-    margin-left: -1px;
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
     line-height: 1.25;
-    border: 1px solid #ddd;
-    border-radius: .25rem;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    text-decoration: none;
+    color: var(--bs-body-color);
+}
+
+ul.pager li a:hover {
+    background-color: var(--bs-secondary-bg-subtle);
+    color: var(--bs-body-color);
 }
 
 pre.code {
@@ -226,12 +222,10 @@ pre.code {
     content: ",";
 }
 
-/* Override incorrect Bootstrap 4 default */
-html[dir="rtl"] body {
+[dir="rtl"] body {
     text-align: right;
 }
 
-/* Set a minimum logo height to ensure .svg are displayed if there is no brand text (#3493) */
 #logo {
     min-height: 25px;
 }

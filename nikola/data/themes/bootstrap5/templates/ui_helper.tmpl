@@ -1,18 +1,18 @@
 ## -*- coding: utf-8 -*-
 <%def name="breadcrumbs(crumbs)">
 %if crumbs:
-<nav class="breadcrumbs">
-<ul class="breadcrumb">
+<nav class="breadcrumbs" aria-label="breadcrumb">
+<ol class="breadcrumb">
     % for link, text in crumbs:
         % if text != index_file:
             % if link == '#':
-                <li class="breadcrumb-item active">${text.rsplit('.html', 1)[0]}</li>
+                <li class="breadcrumb-item active" aria-current="page">${text.rsplit('.html', 1)[0]}</li>
             % else:
                 <li class="breadcrumb-item"><a href="${link}">${text}</a></li>
             % endif
         % endif
     % endfor
-</ul>
+</ol>
 </nav>
 %endif
 </%def>
