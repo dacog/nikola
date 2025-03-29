@@ -83,13 +83,15 @@ def jinjify(in_theme, out_theme):
     mappings = {
         'base-jinja': 'base',
         'bootstrap4-jinja': 'base-jinja',
+        'bootstrap5-jinja': 'base-jinja',
+        'bootblog5-jinja': 'bootstrap5-jinja',
     }
 
     if child in mappings:
         parent = mappings[child]
 
-    # Copy assets in bootstrap/bootstrap4
-    if child == 'bootstrap4-jinja':
+    # Copy assets in bootstrap/bootstrap4/bootstrap5
+    if child in ['bootstrap4-jinja', 'bootstrap5-jinja', 'bootblog5-jinja']:
         assets_dir = os.path.join(out_theme, "assets")
         if os.path.exists(assets_dir):
             shutil.rmtree(assets_dir)
@@ -250,6 +252,8 @@ if __name__ == "__main__":
             ('nikola/data/themes/base', 'nikola/data/themes/base-jinja'),
             ('nikola/data/themes/bootstrap4', 'nikola/data/themes/bootstrap4-jinja'),
             ('nikola/data/themes/bootblog4', 'nikola/data/themes/bootblog4-jinja'),
+            ('nikola/data/themes/bootstrap5', 'nikola/data/themes/bootstrap5-jinja'),
+            ('nikola/data/themes/bootblog5', 'nikola/data/themes/bootblog5-jinja'),
         ):
             print('    {0} -> {1}'.format(m, j))
             jinjify(m, j)
